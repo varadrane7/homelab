@@ -22,7 +22,7 @@ include:
   - compose/$HOSTNAME/bazarr.yml
   ########################### DOWNLOADS
   - compose/$HOSTNAME/qbittorrent.yml
-  # - compose/$HOSTNAME/prowlarr.yml
+  ## - compose/$HOSTNAME/prowlarr.yml
   - compose/$HOSTNAME/jackett.yml
   - compose/$HOSTNAME/flaresolverr.yml
   - compose/$HOSTNAME/jellyseerr.yml
