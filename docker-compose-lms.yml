@@ -1,0 +1,29 @@
+########################### NETWORKS
+networks:
+  default:
+    driver: bridge
+  socket_proxy:
+    name: socket_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.91.0/24
+
+include:
+  ########################### SERVICES
+  - compose/$HOSTNAME/socket-proxy.yml
+  - compose/$HOSTNAME/dozzle.yml
+  - compose/$HOSTNAME/homepage.yml
+  - compose/$HOSTNAME/copyparty.yml
+  ########################### MEDIA APPS
+  - compose/$HOSTNAME/jellyfin.yml
+  - compose/$HOSTNAME/radarr.yml
+  - compose/$HOSTNAME/sonarr.yml
+  - compose/$HOSTNAME/bazarr.yml
+  ########################### DOWNLOADS
+  - compose/$HOSTNAME/qbittorrent.yml
+  # - compose/$HOSTNAME/prowlarr.yml
+  - compose/$HOSTNAME/jackett.yml
+  - compose/$HOSTNAME/flaresolverr.yml
+  - compose/$HOSTNAME/jellyseerr.yml
+  

@@ -1,0 +1,40 @@
+services:
+  # Bazarr - Subtitle Management
+  bazarr:
+    image: lscr.io/linuxserver/bazarr
+    container_name: bazarr
+    security_opt:
+      - no-new-privileges:true
+    restart: "no"
+    profiles: ["media", "starr", "all"]
+    networks:
+      - default
+    ports:
+      - "$BAZARR_PORT:6767"
+    volumes:
+      - $DOCKERDIR/appdata/bazarr:/config
+      - $DATADIR:/data
+    environment:
+      TZ: $TZ
+      PUID: $PUID
+      PGID: $PGID
+
+  # Bazarr - Subtitle Management
+  bazarr-anime:
+    image: lscr.io/linuxserver/bazarr
+    container_name: bazarr-anime
+    security_opt:
+      - no-new-privileges:true
+    restart: "no"
+    profiles: ["media", "starr", "all"]
+    networks:
+      - default
+    ports:
+      - "$BAZARR_ANIME_PORT:6767"
+    volumes:
+      - $DOCKERDIR/appdata/bazarr-anime:/config
+      - $DATADIR:/data
+    environment:
+      TZ: $TZ
+      PUID: $PUID
+      PGID: $PGID
